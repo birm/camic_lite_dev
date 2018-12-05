@@ -1,14 +1,39 @@
 {
   "name": "camic_lite",
-  "version": "0",
+  "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "install-app-deps",
+    "start": "./node_modules/.bin/electron .",
+    "pack": "build --dir",
+    "dist": "build"
   },
-  "author": "",
+  "author": {
+    "name": "Birm",
+    "email": "birm@rbirm.us"
+  },
   "license": "GPL-3.0",
+  "build": {
+    "appId": "us.rbirm.camiclitedev",
+    "dmg": {
+      "icon": "build/icon.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron-builder": "^20.38.2"
+  },
   "dependencies": {
+    "electron": "^3.0.10",
     "sharp": "^0.21.0"
   }
 }

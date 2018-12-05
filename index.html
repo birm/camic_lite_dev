@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>convert your file</title>
+</head>
+<input type="file" id="input" onchange="handle_upload(this.files)">
+<script>
+convertToDZI = require('./convertToDZI')
+// when the file picker changes, run this
+function handle_upload(files){
+  console.log(files[0])
+  convertToDZI(files[0].path, "latest")
+}
+</script>
+</html>
