@@ -9,21 +9,27 @@
 <input type="file" id="input" onchange="handle_upload(this.files)">
 <div id="result" style="width: 100%; height: 200px;"></div>
 <script>
-convertToDZI = require('./convertToDZI')
+const convertToDZI = require('./convertToDZI')
 // when the file picker changes, run this
 function handle_upload(files){
   console.log(files[0])
-  convertToDZI(files[0].path, "latest")
-  var prefixurl = "https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/images/";
-  var tilesources = "latest.dzi"
-  var viewer1 = OpenSeadragon({
-      id: "result",
-      prefixUrl: prefixurl,
-      tileSources: tilesources
-  });
-  fetch('latest.dzi').then(x=>x.text()).then(x=>{
-    console.log(x)
+  convertToDZI(files[0].path, "latest", function(error, info){
+    console.log(error)
+    console.log(info)
+    console.log("done")
+    var prefixurl = "https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/images/";
+    var tilesources = "latest.dzi"
+    var viewer1 = OpenSeadragon({
+        id: "result",
+        prefixUrl: prefixurl,
+        tileSources: tilesources
+    });
+    fetch('latest.dzi').then(x=>x.text()).then(x=>{
+      console.log(x)
+    })
   })
+
+
 }
 
 </script>

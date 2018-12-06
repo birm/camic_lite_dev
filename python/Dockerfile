@@ -66,4 +66,4 @@ RUN pip install pyinstaller
 RUN mkdir /src
 WORKDIR /src
 COPY . /src
-CMD pyinstaller util.py -y ; ls /src/dist/util
+CMD pyinstaller util.py -y  --onefile ; ls /src/dist/util
