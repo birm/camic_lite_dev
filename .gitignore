@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+# electron output
+dist/
+
+# project specifics
+latest.dzi
+latest_files/
