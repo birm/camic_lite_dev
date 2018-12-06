@@ -6,7 +6,7 @@
     "postinstall": "install-app-deps",
     "start": "./node_modules/.bin/electron .",
     "pack": "build --dir",
-    "dist": "build"
+    "dist": "electron-builder -mwl"
   },
   "author": {
     "name": "Birm",
@@ -30,10 +30,10 @@
     }
   },
   "devDependencies": {
-    "electron-builder": "^20.38.2"
+    "electron-builder": "^20.38.2",
+    "electron": "^3.0.10"
   },
   "dependencies": {
-    "electron": "^3.0.10",
     "sharp": "^0.21.0"
   }
 }
