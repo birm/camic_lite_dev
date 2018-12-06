@@ -2,20 +2,27 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>convert your file</title>
-
+  <title>SVS Image Explorer</title>
+  <script src="lib/osd.js"></script>
 </head>
+<p>Select an openslide compatible file, and pan around.</p>
 <input type="file" id="input" onchange="handle_upload(this.files)">
-<h1>output</h1>
-<div id="result"></div>
+<div id="result" style="width: 100%; height: 200px;"></div>
 <script>
 convertToDZI = require('./convertToDZI')
 // when the file picker changes, run this
 function handle_upload(files){
   console.log(files[0])
   convertToDZI(files[0].path, "latest")
+  var prefixurl = "https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/images/";
+  var tilesources = "latest.dzi"
+  var viewer1 = OpenSeadragon({
+      id: "result",
+      prefixUrl: prefixurl,
+      tileSources: tilesources
+  });
   fetch('latest.dzi').then(x=>x.text()).then(x=>{
-    document.getElementById("result").innerText = x
+    console.log(x)
   })
 }
 
