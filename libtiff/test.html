@@ -1,0 +1,13 @@
+<html>
+<head>
+  <script src="./tifinfo.js"></script>
+  <script>
+  function getHeight(filename){
+    var ret = Module.ccall('tiff_get_height',
+                               'number',
+                               ['string'],
+                               [filename])
+  }
+  </script>
+</head>
+</html>
