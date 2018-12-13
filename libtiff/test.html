@@ -2,11 +2,20 @@
 <head>
   <script src="./tifinfo.js"></script>
   <script>
+
   function getHeight(filename){
-    var ret = Module.ccall('tiff_get_height',
-                               'number',
-                               ['string'],
-                               [filename])
+    fetch(filename).then(x=>x.arrayBuffer()).then(x=>{
+      FS.createDataFile(
+              '/',
+              filename,
+              new Uint8Array(buffer), true, false);
+      var ret = Module.ccall('tiff_get_height',
+                                 'number',
+                                 ['string'],
+                                 [filename])
+                                 console.log("hi", ret)
+    })
+
   }
   </script>
 </head>

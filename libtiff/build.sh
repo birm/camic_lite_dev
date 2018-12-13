@@ -18,4 +18,5 @@ emcc test.c \
      -I./local/include \
      -s EXPORTED_FUNCTIONS="['_tiff_get_width', '_tiff_get_height']" \
      -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]' \
+     -s FORCE_FILESYSTEM=1 \
      -o tifinfo.js
