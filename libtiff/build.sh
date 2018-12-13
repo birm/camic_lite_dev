@@ -16,7 +16,7 @@ cd ../
 emcc test.c \
      ./local/lib/libtiff.a \
      -I./local/include \
-     -s EXPORTED_FUNCTIONS="['_tiff_get_width', '_tiff_get_height']" \
+     -s EXPORTED_FUNCTIONS="['_tiff_get_width', '_tiff_get_height', '_tiff_get_dir']" \
      -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]' \
      -s FORCE_FILESYSTEM=1 \
      -o tifinfo.js
