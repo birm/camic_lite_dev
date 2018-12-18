@@ -8,7 +8,7 @@
       FS.createDataFile(
               '/',
               filename,
-              new Uint8Array(buffer), true, false);
+              new Uint8Array(x), true, false);
       var ret = Module.ccall('tiff_get_height',
                                  'number',
                                  ['string'],
@@ -22,7 +22,7 @@
       FS.createDataFile(
               '/',
               filename,
-              new Uint8Array(buffer), true, false);
+              new Uint8Array(x), true, false);
       var ret = Module.ccall('tiff_get_dir',
                                  'number',
                                  ['string'],
